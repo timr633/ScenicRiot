@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ScenicNature</title>
+    <link rel="stylesheet" href="style/style2.css">
+    <script src="js/riot+compiler.min.js"></script>
+    <script src="js/route.min.js"></script>
+  </head>
+    <body>
+          <navi></navi>
+         <section id="showcase">
+         <div class="container">
+            <h1>Welcome to Scenic Nature!</h1>
+            <p>Here you can view and enjoy scenes from nature!</p>
+          </div>
+        </section>
+        <br><br>
+        <div id="content"></div>
+        <footer>
+          <p>ScenicNature Copyright &copy; 2017</p>
+        </fotter>
+
+      <script type="riot/tag" src="tags/navi.tag"></script>
+      <script type="riot/tag" src="tags/lake.tag"></script>
+      <script type="riot/tag" src="tags/beach.tag"></script>
+      <script>riot.mount('*');</script>
+
+      <script>
+      route.base('/');
+      route(function(path) {
+        if (path === 'lake') {
+          riot.mount('#content', 'lake');
+        } else riot.mount('#content', 'beach');
+      });
+         route.start(true);
+      </script>
+     </div>
+    </body>
+
+
+</hml>
